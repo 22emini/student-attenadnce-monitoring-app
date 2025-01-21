@@ -2,6 +2,7 @@ import { getUniqueRecord } from '@/app/_services/service'
 import moment from 'moment'
 import React, { useEffect, useState } from 'react'
 import { Pie, PieChart, ResponsiveContainer } from 'recharts'
+import{motion} from 'framer-motion'
 
 function PieChartComponent({attendaceList}) {
     const data01 = [
@@ -42,7 +43,12 @@ function PieChartComponent({attendaceList}) {
     },[attendaceList])
 
   return (
-    <div className='border p-5 rounded-lg'>
+    <motion.div 
+    initial ={{opacity: 0, scale: 0}}
+    whileInView={{opacity: 1, scale: 1}}
+    transition={{duration: 2, type:'spring'}}
+    
+    className='border p-5 rounded-lg'>
         <h2 className='font-bold text-lg'>Montly Attendance</h2>
         <ResponsiveContainer width={'100%'} height={300}>
 
@@ -53,7 +59,7 @@ function PieChartComponent({attendaceList}) {
         </PieChart>
         
         </ResponsiveContainer>
-    </div>
+    </motion.div>
   )
 }
 

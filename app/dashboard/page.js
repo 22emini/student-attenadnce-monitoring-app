@@ -9,6 +9,7 @@ import StatusList from './_components/StatusList'
 import BarChartComponent from './_components/BarChartComponent'
 import { Pie, PieChart } from 'recharts'
 import PieChartComponent from './_components/PieChartComponent'
+import{motion} from 'framer-motion'
 const data01 = [
   {
     "name": "Group A",
@@ -80,13 +81,26 @@ function Dashboard() {
     <div className='p-10'>
       <div className='flex items-center justify-between'>
           <h2 className='font-bold text-2xl'>Dashboard</h2>
+          
+          
 
           <div className='flex items-center gap-4'>
             <MonthSelection selectedMonth={setSelectedMonth} />
             <GradeSelect selectedGrade={(v)=>{setSelectedGrade(v);console.log(v)}}/>
           </div>
         </div>
+<motion.p 
+  initial ={{opacity: 0, scale: 0}}
+  whileInView={{opacity: 1, scale: 1}}
+  transition={{duration: 2, type:'spring'}}
+  
 
+className='  text-slate-500  bg-blue-200 border  rounded-xl m-5 p-12'>
+
+
+Welcome to the Student Attendance Monitoring System!
+
+We’re excited to have you on board! This platform is designed to make tracking and managing attendance effortless and efficient.please select the month you wish to find attendace for.</motion.p>
         <StatusList attendaceList={attendaceList} />
 
         <div className='grid grid-cols-1 md:grid-cols-3 gap-5'>

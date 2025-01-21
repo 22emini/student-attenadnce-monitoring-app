@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import moment from 'moment'
 import React, { useState } from 'react'
 import AttendanceGrid from './_components/AttendanceGrid'
+import{motion} from 'framer-motion'
 
 function Attendance() {
 
@@ -28,7 +29,14 @@ function Attendance() {
             <h2 className='text-2xl font-bold'>Attendance</h2>
             {/* Search option  */}
 
-            <div className="flex flex-wrap gap-5 my-5 p-5 border rounded-lg shadow-sm">
+            <motion.div 
+
+             
+  initial ={{opacity: 0, translateX:"-100%"}}
+  whileInView={{opacity: 1, translateX:0}}
+  transition={{duration: 2, type:'spring'}}
+            
+          className="flex flex-wrap gap-5 my-5 p-5 border rounded-lg shadow-sm">
   <div className="flex flex-col sm:flex-row gap-2 items-center w-full sm:w-auto">
     <label className="whitespace-nowrap">Select Month:</label>
     <MonthSelection selectedMonth={(value) => setSelectedMonth(value)} />
@@ -42,7 +50,7 @@ function Attendance() {
       Search
     </Button>
   </div>
-</div>
+</motion.div>
 
             {/* Student Attendance Grid  */}
             <AttendanceGrid attadanceList={attendanceList}

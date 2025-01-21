@@ -1,6 +1,7 @@
 import { getUniqueRecord } from '@/app/_services/service'
 import React, { useEffect, useState } from 'react'
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import{motion} from 'framer-motion'
 
 function BarChartComponent({attendaceList,totalPresentData}) {
 
@@ -24,7 +25,13 @@ function BarChartComponent({attendaceList,totalPresentData}) {
         setData(result)
     }
   return (
-    <div className='p-5 border rounded-lg shadow-sm'>
+    <motion.div 
+    
+    initial ={{opacity: 0, scale: 0}}
+    whileInView={{opacity: 1, scale: 1}}
+    transition={{duration: 2, type:'spring'}}
+    
+    className='p-5 border rounded-lg shadow-sm'>
         <h2 className='my-2 font-bold text-lg'>Attendance</h2>
         <ResponsiveContainer width={'100%'} height={300}>
     <BarChart  data={data}>
@@ -37,7 +44,7 @@ function BarChartComponent({attendaceList,totalPresentData}) {
         <Bar dataKey="absentCount" name="Total Absent" fill="#1fe6d1" />
 </BarChart>
 </ResponsiveContainer>
-    </div>
+    </motion.div>
   )
 }
 
