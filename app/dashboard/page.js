@@ -84,7 +84,7 @@ function Dashboard() {
           
           
 
-          <div className='flex items-center gap-4'>
+          <div className='flex items-center  ml-3 gap-4'>
             <MonthSelection selectedMonth={setSelectedMonth} />
             <GradeSelect selectedGrade={(v)=>{setSelectedGrade(v);console.log(v)}}/>
           </div>
